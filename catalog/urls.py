@@ -11,7 +11,16 @@ urlpatterns = [
     # Authors
     path('authors/', views.AuthorListView.as_view(), name='authors'),
     path('author/<int:pk>', views.AuthorDetailView.as_view(), name='author-detail'),
+
+    # User book details
     path('mybooks/', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
+
+    # Librarian
     path('borrowed/', views.BorrowedBooksListView.as_view(), name='all-borrowed'),
     path('book/<uuid:pk>/renew/', views.renew_book_librarian, name="renew-book-librarian"),
+
+    # Author CRUD
+    path('author/create/', views.AuthorCreate.as_view(), name='author_create'),
+    path('author/<int:pk>/update/', views.AuthorUpdate.as_view(), name='author_update'),
+    path('author/<int:pk>/delete/', views.AuthorDelete.as_view(), name='author_delete'),
 ]
