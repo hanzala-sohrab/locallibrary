@@ -23,4 +23,9 @@ urlpatterns = [
     path('author/create/', views.AuthorCreate.as_view(), name='author_create'),
     path('author/<int:pk>/update/', views.AuthorUpdate.as_view(), name='author_update'),
     path('author/<int:pk>/delete/', views.AuthorDelete.as_view(), name='author_delete'),
+
+    # Book CRUD
+    path('book/create/', views.BookCreateView.as_view(), name='book-create'),
+    path('book/<int:pk>/update/', views.BookUpdateView.as_view(), name='book-update'),
+    path('book/<int:pk>/delete/', views.BookDeleteView.as_view(), name='book-delete'),
 ]

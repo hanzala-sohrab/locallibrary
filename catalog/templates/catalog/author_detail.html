@@ -20,6 +20,7 @@
             <li><a href="{% url 'author_create' %}">Add author information</a></li>
             <li><a href="{% url 'author_update' author.pk %}">Update author information</a></li>
             <li><a href="{% url 'author_delete' author.pk %}">Delete author information</a></li>
+            <li><a href="{% url 'book-create' %}">Add book information</a></li>
         {% endif %}
     </ul>
 {% endblock %}
