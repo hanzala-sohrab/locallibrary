@@ -1,4 +1,29 @@
 {% extends 'base_generic.html' %}
+
+{% block sidebar %}
+    <ul class="sidebar-nav">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'books' %}">All books</a></li>
+        <li><a href="{% url 'authors' %}">All authors</a></li>
+        <hr>
+        {% if user.is_authenticated %}
+            <li>User: {{ user.get_username }}</li>
+            <li><a href="{% url 'my-borrowed' %}">My borrowed books</a></li>
+            <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+        {% endif %}
+        {% if perms.catalog.can_mark_returned %}
+            <hr>
+            <li>Staff</li>
+            <li><a href="{% url 'all-borrowed' %}">All borrowed books</a></li>
+            <li><a href="{% url 'author_create' %}">Add author information</a></li>
+            <li><a href="{% url 'author_update' author.pk %}">Update author information</a></li>
+            <li><a href="{% url 'author_delete' author.pk %}">Delete author information</a></li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
 {% block content %}
     <h1>Author: {{ author.first_name }} {{ author.last_name }}</h1>
 
