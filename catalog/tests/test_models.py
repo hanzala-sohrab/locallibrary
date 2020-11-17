@@ -3,7 +3,7 @@ from django.test import TestCase
 # Create your tests here.
 
 
-class MyTestCase(TestCase):
+class MyTestClass(TestCase):
     @classmethod
     def setUpTestData(cls):
         print("setUpTestData: Run once to set up non-modified data for all class methods.")
